@@ -19,13 +19,14 @@ public class Men extends Person {
 
     @Override
     public boolean isRetired() {
-        return super.getAge() > RESTRICTED_AGE;
+        return super.getAge() >= RESTRICTED_AGE;
     }
 
     public void registerPartnership(Woman newPartner) {
         if (partner == null && newPartner.getPartner() == null) {
             partner = newPartner;
             newPartner.setPartner(this);
+            newPartner.setLastName(super.getLastName());
         } else {
             System.out.println("Someone among the partners has an undissolved marriage");
         }
@@ -33,6 +34,7 @@ public class Men extends Person {
 
     @Override
     public void deregisterPartnership() {
+        getPartner().setLastName(getPartner().getMaidenName());
         getPartner().setPartner(null);
         partner = null;
     }

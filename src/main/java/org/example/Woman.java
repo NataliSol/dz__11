@@ -24,19 +24,23 @@ public class Woman extends Person {
         super.setLastName(lastName);
     }
 
+    public String getLastName() {
+        return super.getLastName();
+    }
+
     @Override
     public boolean isRetired() {
-        return super.getAge() > RESTRICTED_AGE;
+        return super.getAge() >= RESTRICTED_AGE;
     }
 
     @Override
-    public void introduce() {
-        System.out.println("Nice to meet you");
+    public String introduce() {
+        return "Nice to meet you";
     }
 
-    public void introduceSuper() {
+    public String introduceSuper() {
         super.introduce();
-        System.out.println("Nice to meet you");
+        return "Nice to meet you";
     }
 
 

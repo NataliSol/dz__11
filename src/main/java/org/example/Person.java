@@ -1,7 +1,7 @@
 package org.example;
 
 public abstract class Person {
-    private String firstName;
+    private final String firstName;
     private String lastName;
     private int age;
 
@@ -10,9 +10,10 @@ public abstract class Person {
         this.lastName = lastName;
         this.age = age;
     }
-    public void happyBirthday(){
+
+    public void happyBirthday() {
         age++;
-        System.out.println("Happy Birthday! Celebrate your new..."+age);
+        System.out.println("Happy Birthday! Celebrate your new..." + age);
     }
 
 
@@ -32,8 +33,8 @@ public abstract class Person {
         this.lastName = lastName;
     }
 
-    public void introduce() {
-        System.out.println("Hi, my name is:" + firstName + " " + lastName);
+    public String introduce() {
+        return "Hi, my name is:" + firstName + " " + lastName;
     }
 
     abstract boolean isRetired();
